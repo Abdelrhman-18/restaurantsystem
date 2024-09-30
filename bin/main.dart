@@ -1,0 +1,30 @@
+import 'restaurantsystem/classOrder.dart';
+import 'restaurantsystem/delivery.dart';
+import 'restaurantsystem/dineinorder.dart';
+import 'restaurantsystem/paymentmethod.dart';
+import 'restaurantsystem/takeawyorder.dart';
+void main() {
+  DineInOrder order1 = DineInOrder();
+  Delivery order2 = Delivery();
+  TakeAwayOrder order3=TakeAwayOrder();
+  print("===============obj DineInOrder=============");
+  order1.customerName = "customer1";
+  order1.addFoodItem(["Pizze", "salad"], 60);
+  order1.setTableNumber(6);
+  order1.processOrder();
+  PaymentMethod payment = Credit();
+  payment.amount(order1.totalCost);
+  print("===============obj delivery===============");
+  order2.customerName = "customer2";
+  order2.addFoodItem(["Pizze", "Burger"], 120);
+  order2.deliveryAddress ="naser sity";
+  order2.processOrder();
+  PaymentMethod payment2 = Cash();
+  payment2.amount(order2.totalCost);
+  print("============obj TakeAwayOrder=============");
+  order3.customerName = "customer3";
+  order3.addFoodItem(["soup", "salad"], 80);
+  order3.processOrder();
+  PaymentMethod payment3 = Credit();
+  payment3.amount(order3.totalCost);
+}
